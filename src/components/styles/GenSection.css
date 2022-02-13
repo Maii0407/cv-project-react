@@ -1,0 +1,19 @@
+.genSection-container {
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-container, .contact-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.name-container input {
+    width: 50%;
+}
+
+.contact-container input {
+    width: 50%;
+}
