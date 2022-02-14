@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Header } from './Header';
 import './styles/GenSection.css';
 
 class GenSection extends Component {
     render() {
         return(
             <div className='genSection-container'>
-                <Header text='GENERAL INFORMATION' />
                 <div className='name-container'>
                     <input
                      id='first-name'

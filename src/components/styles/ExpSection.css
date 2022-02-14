@@ -1,0 +1,24 @@
+.expSection-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.expDate-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.expStart-container, .expEnd-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.companyName, .positionTitle, .mainTask {
+    width: 90%;
+    align-self: center;
+}

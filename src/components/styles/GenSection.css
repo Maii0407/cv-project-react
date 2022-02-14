@@ -8,12 +8,13 @@
 .name-container, .contact-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .name-container input {
-    width: 50%;
+    width: 45%;
 }
 
 .contact-container input {
-    width: 50%;
+    width: 45%;
 }
