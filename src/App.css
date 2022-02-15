@@ -1,6 +1,5 @@
 .main-container {
   width: 100%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
@@ -8,4 +7,12 @@
 form {
   display: flex;
   flex-direction: column;
+}
+
+.perSection-wrapper .header-container h1,
+.eduSection-wrapper .header-container h1,
+.expSection-wrapper .header-container h1 {
+    color: silver;
+    font-size: 20px;
+    border-bottom: 1px solid silver;
 }

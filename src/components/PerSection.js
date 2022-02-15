@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './styles/GenSection.css';
+import './styles/PerSection.css';
 
-class GenSection extends Component {
+class PerSection extends Component {
     render() {
         return(
-            <div className='genSection-container'>
+            <div className='perSection-container'>
                 <div className='name-container'>
                     <input
                      id='first-name'
@@ -40,4 +40,4 @@ class GenSection extends Component {
     }
 }
 
-export { GenSection };
+export { PerSection };
