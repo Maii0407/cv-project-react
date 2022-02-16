@@ -1,39 +1,32 @@
 import React, { Component } from "react";
-import './App.css';
+
 import { Header } from './components/Header';
-import { PerSection } from './components/PerSection';
-import { EduSection } from './components/EduSection';
-import { ExpSection } from './components/ExpSection';
+import { ExampleCV } from "./components/ExampleCV";
+
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className='main-container' >
         <Header text='CV MAKER APP' />
-        <div className="form-container">
+        <div className='content-container'>
           <form>
-            <div className="perSection-wrapper">
+            <div className="personal-container">
               <Header text='PERSONAL INFORMATION'/>
-              <PerSection/>
+              <div className='nameContainer'>
+                <input type='text' id='firstName' placeholder='FIRST NAME'/>
+                <input type='text' id='lastName' placeholder='LAST NAME'/>
+              </div>
+              <div className='contactContainer'>
+                <input type='email' id='emailInput' placeholder='ENTER E-MAIL'/>
+                <input type='tel' id='phoneNo' minLength='8' 
+                 maxLength='16' placeholder='ENTER PHONE NUMBER'/>
+              </div>
             </div>
-            <div className="eduSection-wrapper">
-              <Header text='EDUCATION AND TRAINING INFROMATION'/>
-              <EduSection/>
-            </div>
-            <div>
-              <button type='button'>Add Education</button>
-            </div>
-            <div className="expSection-wrapper">
-              <Header text='PROFESSIONAL EXPERIENCE INFORMATION'/>
-              <ExpSection/>
-            </div>
-            <div>
-              <button type='button'>Add Professional Experience</button>
-            </div>
-            <div>
-              <button type='submit'>Generate CV</button>
-            </div>
+            <button type='submit'>SAVE CV</button>
           </form>
+          <ExampleCV/>
         </div>
       </div>
     );
