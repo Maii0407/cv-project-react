@@ -10,11 +10,11 @@ class ExampleCV extends Component {
             <div className="cv-container">
                 <Header text='PERSONAL INFORMATION'/>
                 <div className="userName">
-                    <p>First Name</p>
-                    <p>Last Name</p>
+                    <p>{ this.props.firstName }</p>
+                    <p>{ this.props.lastName }</p>
                 </div>
-                <p>email@rocketmail.com</p>
-                <p>000 0000 0000</p>
+                <p>{ this.props.email }</p>
+                <p>{ this.props.phoneNum }</p>
             </div>
         )
     }
