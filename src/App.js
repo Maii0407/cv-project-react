@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqid from 'uniqid';
 
 import { Header } from './components/Header';
 import { ExampleCV } from "./components/ExampleCV";
@@ -9,10 +10,26 @@ class App extends Component {
   constructor( props ) {
     super();
     this.state = {
-      firstName: 'First Name',
-      lastName: 'Last Name',
-      email: 'email@rocketmail.com',
-      phoneNum: '012 3456 7890',
+      personalObject: {
+        firstName: '',
+        firstNameID: uniqid(),
+        lastName: '',
+        lastNameID: uniqid(),
+        email: '',
+        emailID: uniqid(),
+        phoneNum: '',
+        phoneNumID: uniqid(),
+      },
+      personalArray: [ {
+        firstName: 'First Name',
+        firstNameID: uniqid(),
+        lastName: 'Last Name',
+        lastNameID: uniqid(),
+        email: 'email@rocketmail.com',
+        emailID: uniqid(),
+        phoneNum: '012 3456 7890',
+        phoneNumID: uniqid(),
+      } ],
     };
   }
 
@@ -43,15 +60,21 @@ class App extends Component {
   onSubmitCV = (e) => {
     e.preventDefault();
     this.setState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNum: '',
+      personalObject: {
+        firstName: '',
+        firstNameID: uniqid(),
+        lastName: '',
+        lastNameID: uniqid(),
+        email: '',
+        emailID: uniqid(),
+        phoneNum: '',
+        phoneNumID: uniqid(),
+      },
     });
   };
 
   render() {
-    const { firstName, lastName, email, phoneNum } = this.state;
+    const { personalObject, personalArray } = this.state;
 
     return (
       <div className='main-container' >
@@ -63,7 +86,7 @@ class App extends Component {
               <div className='nameContainer'>
                 <input 
                  onChange={ this.changeFirstName }
-                 value={ firstName }
+                 value={ personalObject.firstName }
                  type='text'
                  id='firstName'
                  placeholder='FIRST NAME'
@@ -71,7 +94,7 @@ class App extends Component {
                 />
                 <input
                  onChange={ this.changeLastName }
-                 value={ lastName }
+                 value={ personalObject.lastName }
                  type='text'
                  id='lastName'
                  placeholder='LAST NAME'
@@ -81,7 +104,7 @@ class App extends Component {
               <div className='contactContainer'>
                 <input
                  onChange={ this.changeEmail }
-                 value={ email }
+                 value={ personalObject.email }
                  type='email'
                  id='emailInput'
                  placeholder='ENTER E-MAIL'
@@ -89,7 +112,7 @@ class App extends Component {
                 />
                 <input
                  onChange={ this.changePhoneNum }
-                 value={ phoneNum }
+                 value={ personalObject.phoneNum }
                  type='tel'
                  id='phoneNo'
                  minLength='8' 
@@ -101,8 +124,8 @@ class App extends Component {
             </div>
             <button type='submit'>SAVE CV</button>
           </form>
-          <ExampleCV firstName={ firstName } lastName={ lastName }
-           email={ email } phoneNum={ phoneNum }/>
+          <ExampleCV firstName={ personalArray[0].firstName } lastName={ personalArray[0].lastName }
+           email={ personalArray[0].email } phoneNum={ personalArray[0].phoneNum }/>
         </div>
       </div>
     );
