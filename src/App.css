@@ -10,6 +10,21 @@
   flex-direction: row;
 }
 
+form {
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  margin-right: 10px;
+}
+
+form .header-container h1 {
+  color: silver;
+  font-size: 20px;
+  border-bottom: 1px solid silver;
+  text-indent: 10px;
+}
+
 .nameContainer, .contactContainer {
   border: 1px solid red;
   width: 100%;
@@ -22,26 +37,10 @@
   text-indent: 5px;
 }
 
-form {
-  width: 99%;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid red;
-  margin-right: 10px;
+button:hover {
+  cursor: pointer;
 }
 
-.personal-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.personal-container .header-container h1 {
-  color: silver;
-  font-size: 20px;
-  border-bottom: 1px solid silver;
-  text-indent: 10px;
-}
 /*
 .perSection-wrapper .header-container h1,
 .eduSection-wrapper .header-container h1,
