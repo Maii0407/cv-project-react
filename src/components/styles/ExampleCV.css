@@ -19,7 +19,7 @@ p {
     text-indent: 10px;
 }
 
-.userName {
+.userName, .dates {
     display: flex;
     flex-direction: row;
 }

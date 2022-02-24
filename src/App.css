@@ -18,6 +18,21 @@ form {
   margin-right: 10px;
 }
 
+label {
+  color: silver;
+  font-weight: bold;
+  font-size: 15px;
+  text-indent: 10px;
+}
+
+input {
+  text-indent: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 form .header-container h1 {
   color: silver;
   font-size: 20px;
@@ -32,13 +47,24 @@ form .header-container h1 {
   flex-direction: row;
 }
 
-#firstName, #lastName, #emailInput, #phoneNo {
-  width: 50%;
-  text-indent: 5px;
+.dateContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-button:hover {
-  cursor: pointer;
+.startContainer, .endContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.startContainer input, .endContainer input {
+  width: 90%;
+}
+
+#firstName, #lastName, #emailInput, #phoneNo {
+  width: 50%;
 }
 
 /*
