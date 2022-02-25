@@ -105,30 +105,44 @@ class App extends Component {
     });
   };
 
-  onSubmitCV = (e) => {
+  onSubmitPersonalInfo = (e) => {
     e.preventDefault();
     this.setState({
       firstNameArray: [ this.state.firstName, ...this.state.firstNameArray ],
       lastNameArray: [ this.state.lastName, ...this.state.lastNameArray ],
       emailArray: [ this.state.email, ...this.state.emailArray ],
       phoneNumArray: [ this.state.phoneNum, ...this.state.phoneNumArray ],
-      schoolNameArray: [ this.state.schoolName, ...this.state.schoolNameArray ],
-      studyTitleArray: [ this.state.studyTitle, ...this.state.studyTitleArray ],
-      eduStartDateArray: [ this.state.eduStartDate, ...this.state.eduStartDateArray ],
-      eduEndDateArray: [ this.state.eduEndDate, ...this.state.eduEndDateArray ],
-      companyNameArray: [ this.state.companyName, ...this.state.companyNameArray ],
-      posiitonTitleArray: [ this.state.positionTitle, ...this.state.posiitonTitleArray ],
-      workStartDateArray: [ this.state.workStartDate, ...this.state.workStartDateArray ],
-      workEndDateArray: [ this.state.workEndDate, ...this.state.workEndDateArray ],
-      
+
       firstName: { text: '', id: uniqid() },
       lastName: { text: '', id: uniqid() },
       email: { text: '', id: uniqid() },
       phoneNum: { text: '', id: uniqid() },
+    });
+  };
+
+  onSubmitEducationInfo = (e) => {
+    e.preventDefault();
+    this.setState({
+      schoolNameArray: [ this.state.schoolName, ...this.state.schoolNameArray ],
+      studyTitleArray: [ this.state.studyTitle, ...this.state.studyTitleArray ],
+      eduStartDateArray: [ this.state.eduStartDate, ...this.state.eduStartDateArray ],
+      eduEndDateArray: [ this.state.eduEndDate, ...this.state.eduEndDateArray ],
+
       schoolName: { text:'', id: uniqid() },
       studyTitle: { text:'', id: uniqid() },
       eduStartDate: { text:'', id: uniqid() },
       eduEndDate: { text:'', id: uniqid() },
+    });
+  };
+
+  onSubmitWorkInfo = (e) => {
+    e.preventDefault();
+    this.setState({
+      companyNameArray: [ this.state.companyName, ...this.state.companyNameArray ],
+      posiitonTitleArray: [ this.state.positionTitle, ...this.state.posiitonTitleArray ],
+      workStartDateArray: [ this.state.workStartDate, ...this.state.workStartDateArray ],
+      workEndDateArray: [ this.state.workEndDate, ...this.state.workEndDateArray ],
+
       companyName: { text:'', id: uniqid() },
       positionTitle: { text:'', id: uniqid() },
       workStartDate: { text:'', id: uniqid() },
@@ -148,44 +162,52 @@ class App extends Component {
       <div className='main-container' >
         <Header text='CV MAKER APP' />
         <div className='content-container'>
-          <form onSubmit={ this.onSubmitCV }>
+          <div className='form-container'>
             <Header text='ENTER YOUR INFO'/>
-            <div className='nameContainer'>
-              <input onChange={ this.changeFirstName } value={ firstName.text } type='text' id='firstName' placeholder='FIRST NAME' required/>
-              <input onChange={ this.changeLastName } value={ lastName.text } type='text' id='lastName' placeholder='LAST NAME' required/>
-            </div>
-            <div className='contactContainer'>
-              <input onChange={ this.changeEmail } value={ email.text } type='email' id='emailInput' placeholder='ENTER E-MAIL' required/>
-              <input onChange={ this.changePhoneNum } value={ phoneNum.text } type='tel' id='phoneNo' minLength='8'  maxLength='16' placeholder='ENTER PHONE NUMBER' required/>
-            </div>
-            <input onChange={ this.changeSchoolName } value={ schoolName.text } type='text' id='schoolName' placeholder='ENTER EDUCATION INSTITUTE NAME' required/>
-            <input onChange={ this.changeStudyTitle } value={ studyTitle.text } type='text' id='studyTitle' placeholder='ENTER TITLE OF STUDY' required />
+            <form onSubmit={ this.onSubmitPersonalInfo } >
+              <div className='nameContainer'>
+                <input onChange={ this.changeFirstName } value={ firstName.text } type='text' id='firstName' placeholder='FIRST NAME' required/>
+                <input onChange={ this.changeLastName } value={ lastName.text } type='text' id='lastName' placeholder='LAST NAME' required/>
+              </div>
+              <div className='contactContainer'>
+                <input onChange={ this.changeEmail } value={ email.text } type='email' id='emailInput' placeholder='ENTER E-MAIL' required/>
+                <input onChange={ this.changePhoneNum } value={ phoneNum.text } type='tel' id='phoneNo' minLength='8'  maxLength='16' placeholder='ENTER PHONE NUMBER' required/>
+              </div>
+              <button type='submit'>SAVE PERSONAL INFROMATION</button>
+            </form>
 
-            <div className='dateContainer'>
-              <div className='startContainer'>
-                <label for='eduStartDate'>EDUCATION START DATE</label>
-                <input onChange={ this.changeEduStartDate } value={ eduStartDate.text } type='date' id='eduStartDate' name='eduStartDate' required />
+            <form onSubmit={ this.onSubmitEducationInfo } >
+              <input onChange={ this.changeSchoolName } value={ schoolName.text } type='text' id='schoolName' placeholder='ENTER EDUCATION INSTITUTE NAME' required/>
+              <input onChange={ this.changeStudyTitle } value={ studyTitle.text } type='text' id='studyTitle' placeholder='ENTER TITLE OF STUDY' required />
+              <div className='dateContainer'>
+                <div className='startContainer'>
+                  <label htmlFor='eduStartDate'>EDUCATION START DATE</label>
+                  <input onChange={ this.changeEduStartDate } value={ eduStartDate.text } type='date' id='eduStartDate' name='eduStartDate' required />
+                </div>
+                <div className='endContainer'>
+                  <label htmlFor='eduEndDate'>EDUCATION END DATE</label>
+                  <input onChange={ this.changeEduEndDate } value={ eduEndDate.text } type='date' id='eduEndDate' name='eduEndDate' required />
+                </div>
               </div>
-              <div className='endContainer'>
-                <label for='eduEndDate'>EDUCATION END DATE</label>
-                <input onChange={ this.changeEduEndDate } value={ eduEndDate.text } type='date' id='eduEndDate' name='eduEndDate' required />
-              </div>
-            </div>
+              <button type='submit'>SAVE EDUCATION INFROMATION</button>
+            </form>
 
-            <input onChange={ this.changeCompanyName } value={ companyName.text } type='text' id='companyName' placeholder='ENTER COMPANY NAME' required />
-            <input onChange={ this.changePositionTitle } value={ positionTitle.text } type='text' id='positionTitle' placeholder='ENTER POSIITON TITLE' required />
-            <div className='dateContainer'>
-              <div className='startContainer'>
-                <label for='workStartDate'>JOB START DATE</label>
-                <input onChange={ this.changeWorkStartDate } value={ workStartDate.text } type='date' id='workStartDate' name='workStartDate' required />
+            <form onSubmit={ this.onSubmitWorkInfo } >
+              <input onChange={ this.changeCompanyName } value={ companyName.text } type='text' id='companyName' placeholder='ENTER COMPANY NAME' required />
+              <input onChange={ this.changePositionTitle } value={ positionTitle.text } type='text' id='positionTitle' placeholder='ENTER POSIITON TITLE' required />
+              <div className='dateContainer'>
+                <div className='startContainer'>
+                  <label htmlFor='workStartDate'>JOB START DATE</label>
+                  <input onChange={ this.changeWorkStartDate } value={ workStartDate.text } type='date' id='workStartDate' name='workStartDate' required />
+                </div>
+                <div className='endContainer'>
+                  <label htmlFor='workEndDate'>JOB END DATE</label>
+                  <input onChange={ this.changeWorkEndDate } value={ workEndDate.text } type='date' id='workEndDate' name='workEndDate' required />
+                </div>
               </div>
-              <div className='endContainer'>
-                <label for='workEndDate'>JOB END DATE</label>
-                <input onChange={ this.changeWorkEndDate } value={ workEndDate.text } type='date' id='workEndDate' name='workEndDate' required />
-              </div>
-            </div>
-            <button type='submit'>SAVE CV</button>
-          </form>
+              <button type='submit'>SAVE WORK EXPERIENCE INFROMATION</button>
+            </form>
+          </div>
           <ExampleCV  fnArray={ firstNameArray } lnArray={ lastNameArray } eArray={ emailArray } pnArray={ phoneNumArray }
            snArray={ schoolNameArray } stArray={ studyTitleArray } esdArray={ eduStartDateArray } eedArray={ eduEndDateArray }
            cnArray={ companyNameArray } ptArray={ posiitonTitleArray } wsdArray={ workStartDateArray } wedArray={ workEndDateArray }
