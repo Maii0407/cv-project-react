@@ -85,6 +85,6 @@ button:hover {
   width: 90%;
 }
 
-#firstName, #lastName, #emailInput, #phoneNo {
+#firstName, #lastName, #emailInput, #phoneNum {
   width: 50%;
 }

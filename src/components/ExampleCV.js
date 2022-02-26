@@ -1,9 +1,24 @@
-import React, { Component } from "react";
+import React from 'react';
 
 import { Header } from './Header';
 
 import './styles/ExampleCV.css';
 
+const ExampleCV = ( props ) => {
+  return (
+    <div className='cv-container'>
+      <Header text='PERSONAL INFORMATION'/>
+      <div className='userName'>
+        <p>{ props.firstName }</p>
+        <p>{ props.lastName }</p>
+      </div>
+    </div>
+  )
+};
+
+export { ExampleCV }
+
+/*
 class ExampleCV extends Component {
     render() {
         return (
@@ -33,5 +48,4 @@ class ExampleCV extends Component {
         )
     }
 }
-
-export { ExampleCV }
+*/
