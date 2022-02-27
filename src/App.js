@@ -30,9 +30,26 @@ const App = () => {
       <div className='content-container' >
         <div className='form-container'>
           <Header text='ENTER YOUR INFO'/>
-          <PersonalForm/>
-          <EduForm/>
-          <WorkForm/>
+          <PersonalForm
+          setFirstName={ setFirstName }
+          setLastName={ setLastName }
+          setEmail={ setEmail }
+          setPhoneNum={ setPhoneNum }
+          />
+
+          <EduForm
+          setSchoolName={ setSchoolName }
+          setStudyTitle={ setStudyTitle }
+          setEduStartDate={ setEduStartDate }
+          setEduEndDate={ setEduEndDate }
+          />
+
+          <WorkForm
+          setCompanyName={ setCompanyName }
+          setPositionTitle={ setPositionTitle }
+          setWorkStartDate={ setWorkStartDate }
+          setWorkEndDate={ setWorkEndDate }
+          />
         </div>
         <ExampleCV 
         firstName={ firstName } 

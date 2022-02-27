@@ -1,8 +1,22 @@
 import React from 'react';
 
 const PersonalForm = ( props ) => {
+  const formSubmit = (e) => {
+    e.preventDefault();
+
+    props.setFirstName( document.getElementById( 'firstName' ).value.toUpperCase());
+    props.setLastName( document.getElementById( 'lastName' ).value.toUpperCase());
+    props.setEmail( document.getElementById( 'emailInput' ).value);
+    props.setPhoneNum( document.getElementById( 'phoneNum' ).value);
+
+    document.getElementById( 'firstName' ).value = '';
+    document.getElementById( 'lastName' ).value = '';
+    document.getElementById( 'emailInput' ).value = '';
+    document.getElementById( 'phoneNum' ).value = '';
+  };
+
   return (
-    <form>
+    <form onSubmit={ formSubmit }>
       <div className='nameContainer'>
         <input type='text' id='firstName' placeholder='FIRST NAME' required/>
         <input type='text' id='lastName' placeholder='LAST NAME' required/>
